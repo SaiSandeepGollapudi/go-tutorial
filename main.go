@@ -15,4 +15,13 @@ func main() {
 		fmt.Println(i)
 	}
 
+	num := 7
+	if num > 10 {
+		fmt.Println("greater")
+	} else if num == 10 {
+		fmt.Println("equal")
+	} else {
+		fmt.Println("less")
+	}
+
 }
