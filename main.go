@@ -5,6 +5,14 @@ import (
 	"fmt"
 )
 
+type Address struct {
+	Address1 string
+	Address2 string
+	City   string
+	State  string
+	Zip    int
+}
+
 func main() {
 	fmt.Println("Hi world")
 
@@ -42,5 +50,18 @@ func main() {
 	defer fmt.Println("Hi")
 	fmt.Println("world")
 	defer fmt.Println("go")
+
+	a := Address{
+		Address1: " 123 street",
+		Address2: " Apt 2",
+		State:    "TX",
+		Pin:      45627,
+	}
+	fmt.Println(a.Address1)
+	fmt.Println(a.Address2)
+	fmt.Println(a.State)
+	fmt.Println(a.Pin)
+	fmt.Println(a)
+	}
 
 }
