@@ -26,6 +26,18 @@ func main() {
 		fmt.Println("less")
 	}
 
+	//Switch
+	day := "Tuesday"
+
+	switch day {
+	case "Monday":
+		fmt.Println("Monday")
+	case "Tuesday":
+		fmt.Println("Tuesday")
+	default:
+		fmt.Println("Weekend")
+	}
+
 	//defer
 	defer fmt.Println("Hi")
 	fmt.Println("world")
