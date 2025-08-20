@@ -8,9 +8,9 @@ import (
 type Address struct {
 	Address1 string
 	Address2 string
-	City   string
-	State  string
-	Zip    int
+	City     string
+	State    string
+	Zip      int
 }
 
 func main() {
@@ -51,17 +51,31 @@ func main() {
 	fmt.Println("world")
 	defer fmt.Println("go")
 
-	a := Address{
+	//Pointers
+	i := 8
+	j := &i
+	fmt.Println("Value of i:", i)
+	fmt.Println("Value of j which is address of i:", j)
+	fmt.Println("Value pointed by j:", *j)
+	*j = 10
+	fmt.Println("Updated value of i:", i)
+
+	//Arrays
+	nums := [5]int{1, 2, 3, 4, 5}
+	for i, v := range nums {
+		fmt.Println("Index", i, "Value", v)
+	}
+
+	ad := Address{
 		Address1: " 123 street",
 		Address2: " Apt 2",
 		State:    "TX",
-		Pin:      45627,
-	}
-	fmt.Println(a.Address1)
-	fmt.Println(a.Address2)
-	fmt.Println(a.State)
-	fmt.Println(a.Pin)
-	fmt.Println(a)
+		Zip:      45627,
 	}
 
+	fmt.Println(ad.Address1)
+	fmt.Println(ad.Address2)
+	fmt.Println(ad.State)
+	fmt.Println(ad.Zip)
+	fmt.Println(ad)
 }
