@@ -66,6 +66,7 @@ func main() {
 		fmt.Println("Index", i, "Value", v)
 	}
 
+	//Structs
 	ad := Address{
 		Address1: " 123 street",
 		Address2: " Apt 2",
@@ -78,4 +79,40 @@ func main() {
 	fmt.Println(ad.State)
 	fmt.Println(ad.Zip)
 	fmt.Println(ad)
+
+	//slice
+	s := []int{1, 2, 3}
+	fmt.Println(len(s))
+	fmt.Println(cap(s))
+	fmt.Println(s)
+
+	s = append(s, 4) // Add element at the end
+	s = append(s, 5)
+	fmt.Println(s)
+
+	arr := []int{1, 2, 3, 4, 5}
+	s = arr[1:3]
+	fmt.Println(s)
+
+	//Map
+
+	food := map[string]string{
+		"Avacado":   "Guac",
+		"Blueberry": "Pie",
+	}
+
+	food["carrot"] = "cake"
+	fmt.Println("after adding new food:", food)
+
+	if val, ok := food["Avacado"]; ok {
+		fmt.Println("Avacado  is present ", val)
+
+	} else {
+		fmt.Println("Avacado is not present")
+
+	}
+
+	for key, value := range food {
+		fmt.Println(key, value)
+	}
 }
