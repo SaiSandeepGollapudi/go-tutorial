@@ -13,6 +13,15 @@ type Address struct {
 	Zip      int
 }
 
+type Triangle struct {
+	width  float64
+	height float64
+}
+
+func (t Triangle) area() float64 {
+	return (t.width * t.height) / 2
+}
+
 func main() {
 	fmt.Println("Hi world")
 
@@ -81,18 +90,23 @@ func main() {
 	fmt.Println(ad)
 
 	//slice
-	s := []int{1, 2, 3}
+	s := make([]int, 2, 3) // 2= len, 3 capacity
 	fmt.Println(len(s))
 	fmt.Println(cap(s))
 	fmt.Println(s)
 
-	s = append(s, 4) // Add element at the end
-	s = append(s, 5)
-	fmt.Println(s)
+	s = append(s, 6)
+	s = append(s, 7)
 
-	arr := []int{1, 2, 3, 4, 5}
-	s = arr[1:3]
-	fmt.Println(s)
+	fmt.Println("s after appending", s)
+
+	//slice with same len and capacity
+	q := []int{1, 2, 3, 4, 5}
+	fmt.Println(q)
+
+	slice := q[1:3]
+
+	fmt.Println(slice)
 
 	//Map
 
@@ -115,4 +129,9 @@ func main() {
 	for key, value := range food {
 		fmt.Println(key, value)
 	}
+
+	//Method call of Triangle
+	tri := Triangle{2, 4}
+	fmt.Println("Area:", tri.area())
+
 }
