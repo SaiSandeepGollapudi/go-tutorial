@@ -3,6 +3,8 @@ package main
 import (
 	"MyProject/simplecalc"
 	"fmt"
+	"strings"
+	"time"
 )
 
 type Address struct {
@@ -20,6 +22,79 @@ type Triangle struct {
 
 func (t Triangle) area() float64 {
 	return (t.width * t.height) / 2
+}
+
+func factorial(n int) {
+	result := 1
+
+	for i := 1; i <= n; i++ {
+		result = result * i
+
+	}
+
+	fmt.Println("Factorial of ", n, "is", result)
+
+}
+
+// Function to reverse string using only string operations
+func reverseString(s string) string {
+	reversed := ""
+	for i := len(s) - 1; i >= 0; i-- {
+		reversed += string(s[i]) // append the i-th byte as a 1-char string
+	}
+	return reversed
+}
+
+func isPalindrome(s string) bool {
+	return s == reverseString(s)
+}
+
+// Functions for different languages
+func english() {
+	fmt.Println("Hello (English)")
+}
+
+func spanish() {
+	fmt.Println("Hola (Spanish)")
+}
+
+func french() {
+	fmt.Println("Bonjour (French)")
+}
+
+func german() {
+	fmt.Println("Hallo (German)")
+}
+
+// fibonacci
+func fibonacci(n int) {
+	first := 0
+	second := 1
+
+	fmt.Print("Fibonacci sequence: ")
+
+	// loop n times
+	for i := 0; i < n; i++ {
+		fmt.Println(first, " ")
+		next := first + second // calculate the next number
+		first = second         // move forward: second becomes first
+		second = next          // next becomes second
+	}
+}
+
+// wordCount
+func wordCount(text string) map[string]int {
+	wordMap := make(map[string]int)
+
+	// Split text into words
+	words := strings.Fields(text)
+
+	// Count each word
+	for _, word := range words {
+		wordMap[word]++
+	}
+
+	return wordMap
 }
 
 func main() {
@@ -133,5 +208,27 @@ func main() {
 	//Method call of Triangle
 	tri := Triangle{2, 4}
 	fmt.Println("Area:", tri.area())
+
+	//factorial
+	factorial(5)
+
+	// calling Function to check palindrome
+	fmt.Println("madam is palindrome?", isPalindrome("madam"))
+	fmt.Println("hello is palindrome?", isPalindrome("hello"))
+
+	go english()
+	go spanish()
+	go french()
+	go german()
+
+	// Sleep so goroutines get time to finish
+	time.Sleep(1 * time.Microsecond)
+
+	fibonacci(10)
+
+	// input for wordcount
+	text := "go is fun and go is powerful"
+	counts := wordCount(text)
+	fmt.Println(counts)
 
 }
